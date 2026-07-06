@@ -1,0 +1,33 @@
+@id_loja_desejada = 1 (Loja Aeroporto Galeão)
+@id_cidade = (SELECT id_cidade FROM Loja WHERE id_loja = 1)
+
+SELECT 
+    c.id_carro, 
+    c.modelo, 
+    c.placa, 
+    l.nome AS nome_loja_atual,
+    CASE 
+        WHEN c.id_loja_atual = 1 THEN 1 
+        ELSE 2 
+    END AS prioridade_distancia
+FROM Carro c
+INNER JOIN Loja l ON c.id_loja_atual = l.id_loja
+WHERE c.status = 'livre' 
+  AND l.id_cidade = (SELECT id_cidade FROM Loja WHERE id_loja = 1)
+ORDER BY prioridade_distancia ASC, c.id_carro ASC
+LIMIT 1;
+
+
+
+INSERT INTO Locacao (
+    id_cliente, id_carro, id_loja_retirada, data_retirada, 
+    periodo_dias, canal_reserva, status, inclui_motorista, valor_pago
+) VALUES (
+    10, 15, 1, '2026-06-25 10:00:00', 
+    7, 'internet', 'reservado', FALSE, 1250.00
+);
+
+
+UPDATE Carro 
+SET status = 'reservado' 
+WHERE id_carro = 15;

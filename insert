@@ -1,0 +1,19 @@
+-- Inclusão (Create)
+INSERT INTO Cliente (nome, cpf, cnh, telefone) 
+VALUES ('João Silva', '111.222.333-44', '12345678901', '
+
+INSERT INTO Carro (id_loja_atual, placa, modelo, marca, status) 
+VALUES (1, 'ABC-1234', 'Argo', 'Fiat', 'livre');
+
+-- Seleção (Read)
+SELECT * FROM Cliente WHERE cpf = '111.222.333-44';
+SELECT * FROM Carro WHERE status = 'livre';
+
+-- Alteração (Update)
+UPDATE Cliente SET telefone = '21988888888' WHERE id_cliente = 1;
+UPDATE Carro SET status = 'manutencao' WHERE placa = 'ABC-1234';
+
+
+-- Exclusão (Delete)
+DELETE FROM Cliente WHERE id_cliente = 1;
+DELETE FROM Carro WHERE id_carro = 1;
