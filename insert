@@ -1,15 +1,26 @@
 -- Inclusão (Create)
+INSERT INTO Cidade (nome, estado) VALUES ('Rio de Janeiro', 'RJ');
+INSERT INTO Cidade (nome, estado) VALUES ('São Paulo', 'SP');
+INSERT INTO Cidade (nome, estado) VALUES ('Brasília', 'DF');
+
+INSERT INTO Loja (id_cidade, nome, endereco, tipo_local) 
+VALUES (1, 'Falls Car - Aeroporto Galeão', 'Av. Vinte de Janeiro, s/n - Ilha do Governador', 'Aeroporto');
+INSERT INTO Loja (id_cidade, nome, endereco, tipo_local) 
+VALUES (1, 'Falls Car - Copacabana', 'Av. Atlântica, 1500 - Copacabana', 'Loja de Rua');
+INSERT INTO Loja (id_cidade, nome, endereco, tipo_local) 
+VALUES (2, 'Falls Car - Aeroporto Congonhas', 'Av. Washington Luís, s/n - Vila Congonhas', 'Aeroporto');
+
 INSERT INTO Cliente (nome, cpf, cnh, telefone) 
 VALUES ('João Silva', '111.222.333-44', '12345678901', '
 
 INSERT INTO Carro (id_loja_atual, placa, modelo, marca, status) 
 VALUES (1, 'ABC-1234', 'Argo', 'Fiat', 'livre');
 
--- Seleção (Read)
+-- Seleção 
 SELECT * FROM Cliente WHERE cpf = '111.222.333-44';
 SELECT * FROM Carro WHERE status = 'livre';
 
--- Alteração (Update)
+-- Alteração 
 UPDATE Cliente SET telefone = '21988888888' WHERE id_cliente = 1;
 UPDATE Carro SET status = 'manutencao' WHERE placa = 'ABC-1234';
 
@@ -17,3 +28,8 @@ UPDATE Carro SET status = 'manutencao' WHERE placa = 'ABC-1234';
 -- Exclusão (Delete)
 DELETE FROM Cliente WHERE id_cliente = 1;
 DELETE FROM Carro WHERE id_carro = 1;
+
+-- Inclusão (Insert) na tabela Cidade
+INSERT INTO Cidade (nome, estado) VALUES ('Rio de Janeiro', 'RJ');
+INSERT INTO Cidade (nome, estado) VALUES ('São Paulo', 'SP');
+INSERT INTO Cidade (nome, estado) VALUES ('Brasília', 'DF');
